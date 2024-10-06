@@ -9,7 +9,7 @@ metadata:
   #   backstage.io/techdocs-ref: dir:.
   annotations:
     jenkins-jobUrl: http://localhost:8080/job/SimplePipeline
-    # jenkins.io/job-full-name: SimplePipeline
+    jenkins.io/job-full-name: SimplePipeline
 spec:
   type: website
   owner: john@example.com
