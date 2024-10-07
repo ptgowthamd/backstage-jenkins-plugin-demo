@@ -8,12 +8,8 @@ metadata:
   #   github.com/project-slug: backstage/backstage
   #   backstage.io/techdocs-ref: dir:.
   annotations:
-    jenkins-jobUrls: 
-      - http://localhost:8080/job/test-job/
-    jenkins.io/job-full-names: 
-      - test-job
-    # jenkins-jobUrl: http://localhost:8080/job/SimplePipeline
-    # jenkins.io/job-full-name: SimplePipeline
+    jenkins-jobUrl: http://localhost:8080/job/SimplePipeline
+    jenkins.io/job-full-name: SimplePipeline
 spec:
   type: website
   owner: gowtham@example.com
