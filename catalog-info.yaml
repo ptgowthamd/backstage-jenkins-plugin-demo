@@ -12,5 +12,5 @@ metadata:
     jenkins.io/job-full-name: SimplePipeline
 spec:
   type: website
-  owner: john@example.com
+  owner: gowtham@example.com
   lifecycle: experimental
