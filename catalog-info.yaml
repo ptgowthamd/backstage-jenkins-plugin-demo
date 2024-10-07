@@ -9,10 +9,10 @@ metadata:
   #   backstage.io/techdocs-ref: dir:.
   annotations:
    jenkins-jobUrls: 
-      - http://localhost:8080/job/SimplePipeline/
+      # - http://localhost:8080/job/SimplePipeline/
       - http://localhost:8080/job/test-job/
     jenkins.io/job-full-names: 
-      - SimplePipeline
+      # - SimplePipeline
       - test-job
     # jenkins-jobUrl: http://localhost:8080/job/SimplePipeline
     # jenkins.io/job-full-name: SimplePipeline
