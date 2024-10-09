@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: jenkins-plugin-demo-project
+  name: github-plugin-demo-project
   description: An example of a Backstage application.
   # Example for optional annotations
   # annotations:
@@ -20,7 +20,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: jenkins-plugin-demo-project2
+  name: jenkins-plugin-demo-project
   description: test pipeline-2
   annotations:
     jenkins-jobUrl: http://localhost:8080/job/SimplePipeline
