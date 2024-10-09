@@ -13,7 +13,7 @@ metadata:
     jenkins-jobUrl: http://localhost:8080/job/My-GitHub-Pipeline
     jenkins.io/job-full-name: My-GitHub-Pipeline
 spec:
-  type: website
+  type: service
   owner: gowtham@example.com
   lifecycle: experimental
 ---
@@ -24,7 +24,7 @@ metadata:
   description: test pipeline-2
   annotations:
     jenkins-jobUrl: http://localhost:8080/job/SimplePipeline
-    jenkins.io/job-full-name: IVI-Display-Bench
+    jenkins.io/job-full-name: SimplePipeline
 spec:
   type: service
   owner: gowthamd@example.com
