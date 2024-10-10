@@ -44,7 +44,7 @@ spec:
   owner: team-xyz
   system: backend-system
   providesApis:
-    - flask-app-api
+    - api:default/flask-app-api
   links:
     - url: http://0.0.0.0:8000
       title: Open Flask App
