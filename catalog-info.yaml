@@ -44,10 +44,10 @@ spec:
   owner: team-xyz
   system: backend-system
   providesApis:
-    - default/flask-app-api
-      type: openapi
-      lifecycle: production
-      definition: http://0.0.0.0:8000/openapi.json
+    - api: default/flask-app-api
+      # type: openapi
+      # lifecycle: production
+      # definition: http://0.0.0.0:8000/openapi.json
   links:
     - url: http://0.0.0.0:8000
       title: Open Flask App
