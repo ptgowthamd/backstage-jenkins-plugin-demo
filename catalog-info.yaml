@@ -49,4 +49,4 @@ spec:
   owner: team-xyz
   system: backend-system
   providesApis:
-    - api: default/flask-app-api
+    - default/flask-app-api
