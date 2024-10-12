@@ -38,6 +38,11 @@ metadata:
   tags:
     - flask
     - python
+  links:
+    - url: http://0.0.0.0:8000
+      title: Open Flask App
+      icon: dashboard
+      type: admin-dashboard
 spec:
   type: service
   lifecycle: production
@@ -45,11 +50,3 @@ spec:
   system: backend-system
   providesApis:
     - api: default/flask-app-api
-      # type: openapi
-      # lifecycle: production
-      # definition: http://0.0.0.0:8000/openapi.json
-  links:
-    - url: http://0.0.0.0:8000
-      title: Open Flask App
-    - url: http://0.0.0.0:8000/apidocs
-      title: Swagger UI
