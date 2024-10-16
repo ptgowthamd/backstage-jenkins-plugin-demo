@@ -77,3 +77,31 @@ spec:
   dependsOn:
     - Resource:your-database
     - Component:authentication-service
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: flask-app-api
+  description: RESTful API provided by the Flask application.
+  tags:
+    - flask
+    - api
+    - backend
+  annotations:
+    documentation: url:https://your-techdocs-site.com/docs/flask-app-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: team-xyz
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Flask App API
+      version: 1.0.0
+    paths:
+      /endpoint:
+        get:
+          summary: Sample endpoint
+          responses:
+            '200':
+              description: Successful response
