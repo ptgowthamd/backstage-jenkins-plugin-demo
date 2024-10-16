@@ -34,15 +34,50 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: flask-app
-  description: A simple Flask application
+  description: >
+    A Python Flask application that serves as the backend service for our platform.
+    It provides RESTful APIs for client applications and handles business logic.
   tags:
     - flask
     - python
+    - backend
+    - service
+  annotations:
+    github.com/project-slug: your-org/flask-app-repo
+    github.com/repo-url: https://github.com/your-org/flask-app-repo
+    github.com/branch: main
+    github.com/commit-hash: abcdef1234567890abcdef1234567890abcdef12
+    backstage.io/techdocs-ref: url:https://your-techdocs-site.com/docs/flask-app
+    pagerduty.com/service-id: your-pagerduty-service-id
+    jenkins.io/job-slug: your-org/flask-app-job
+    docker.io/image-name: your-docker-repo/flask-app
+    kubernetes.io/namespace: flask-app-namespace
+    slack.com/channel: your-slack-channel
+    sentry.io/project-slug: your-org/flask-app
+    newrelic.com/monitoring-url: https://one.newrelic.com/launcher/nr1-core.explorer?platform[accountId]=1234567&pane=eyJuZXJkIjoiYXBwSW5zdGFuY2UiLCJpZCI6ImFlMDZiZGU0LTU4NGQtNDE0MS1hZGY5LWI2YmE3M2Y3YjJkZSJ9
+    sonarqube.org/project-key: flask-app
   links:
-    - url: http://0.0.0.0:8000
-      title: Open Flask App
+    - url: https://github.com/your-org/flask-app-repo
+      title: Source Code
+      icon: github
+    - url: http://your-flask-app-url.com
+      title: Live Application
+      icon: link
+    - url: https://your-techdocs-site.com/docs/flask-app
+      title: Documentation
+      icon: docs
+    - url: https://your-ci-cd-pipeline.com/job/flask-app
+      title: CI/CD Pipeline
+      icon: build
+    - url: https://your-monitoring-service.com/dashboards/flask-app
+      title: Monitoring Dashboard
       icon: dashboard
-      type: admin-dashboard
+    - url: https://sentry.io/organizations/your-org/projects/flask-app
+      title: Error Tracking
+      icon: sentry
+    - url: https://your-logging-service.com/logs/flask-app
+      title: Logs
+      icon: logs
 spec:
   type: service
   lifecycle: production
@@ -50,3 +85,62 @@ spec:
   system: backend-system
   providesApis:
     - default/flask-app-api
+  consumesApis:
+    - default/authentication-api
+    - default/database-api
+  dependsOn:
+    - resource: database/postgresql@your-org/your-database
+    - component: authentication-service@your-org/auth-service
+  subcomponentOf:
+    kind: System
+    name: backend-system
+relations:
+  - type: ownedBy
+    target:
+      kind: Group
+      name: team-xyz
+      namespace: default
+  - type: partOf
+    target:
+      kind: System
+      name: backend-system
+      namespace: default
+  - type: dependsOn
+    target:
+      kind: Component
+      name: authentication-service
+      namespace: default
+  - type: consumesApi
+    target:
+      kind: API
+      name: authentication-api
+      namespace: default
+  - type: providesApi
+    target:
+      kind: API
+      name: flask-app-api
+      namespace: default
+status:
+  lastUpdated: '2023-10-01T12:00:00Z'
+  summary: Operational
+---
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: flask-app
+#   description: A simple Flask application
+#   tags:
+#     - flask
+#     - python
+#   links:
+#     - url: http://0.0.0.0:8000
+#       title: Open Flask App
+#       icon: dashboard
+#       type: admin-dashboard
+# spec:
+#   type: service
+#   lifecycle: production
+#   owner: team-xyz
+#   system: backend-system
+#   providesApis:
+#     - default/flask-app-api
