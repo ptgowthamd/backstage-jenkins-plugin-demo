@@ -94,3 +94,24 @@ metadata:
   status:
     lastUpdated: '2023-10-01T12:00:00Z'
     summary: Operational
+---
+  apiVersion: backstage.io/v1alpha1
+  kind: Component
+  metadata:
+    name: flask-app
+    description: A simple Flask application
+    tags:
+      - flask
+      - python
+    links:
+      - url: http://0.0.0.0:8000
+        title: Open Flask App
+        icon: dashboard
+        type: admin-dashboard
+  spec:
+    type: service
+    lifecycle: production
+    owner: team-xyz
+    system: backend-system
+    providesApis:
+      - default/flask-app-api
