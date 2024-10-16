@@ -78,19 +78,19 @@ metadata:
     - url: https://your-logging-service.com/logs/flask-app
       title: Logs
       icon: logs
-spec:
-  type: service
-  lifecycle: production
-  owner: team-xyz
-  system: backend-system
-  providesApis:
-    - default/flask-app-api
-  consumesApis:
-    - default/authentication-api
-    - default/database-api
-  dependsOn:
-    - resource: database/postgresql@your-org/your-database
-    - component: authentication-service@your-org/auth-service
-status:
-  lastUpdated: '2023-10-01T12:00:00Z'
-  summary: Operational
+  spec:
+    type: service
+    lifecycle: production
+    owner: team-xyz
+    system: backend-system
+    providesApis:
+      - default/flask-app-api
+    consumesApis:
+      - default/authentication-api
+      - default/database-api
+    dependsOn:
+      - resource: database/postgresql@your-org/your-database
+      - component: authentication-service@your-org/auth-service
+  status:
+    lastUpdated: '2023-10-01T12:00:00Z'
+    summary: Operational
