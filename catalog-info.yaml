@@ -55,7 +55,7 @@ metadata:
     - flask
     - python
   annotations:
-    backstage.io/techdocs-ref: url:https://your-techdocs-site.com/docs/flask-app
+    backstage.io/techdocs-ref: url:https://github.com/ptgowthamd/backstage-jenkins-plugin-demo
     # github.com/project-slug: your-org/flask-app-repo  # Replace with your actual GitHub org and repo
     jenkins-jobUrl: http://localhost:8080/job/My-GitHub-Pipeline
     jenkins.io/job-full-name: My-GitHub-Pipeline
