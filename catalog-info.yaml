@@ -89,6 +89,11 @@ metadata:
     - backend
   annotations:
     documentation: url:https://your-techdocs-site.com/docs/flask-app-api
+    backstage.io/techdocs-ref: url:https://your-techdocs-site.com/docs/flask-app-api
+    github.com/project-slug: your-org/your-repo  # Replace with your GitHub org and repo
+    # If using other CI/CD tools, use the appropriate annotations
+    # For example, for Jenkins:
+    # jenkins.io/job-url: https://jenkins.example.com/job/flask-app/
     # CI/CD Annotations
     # backstage.io/ci-cd-pipeline-url: https://ci.example.com/pipelines/flask-app
     # backstage.io/cd-deployment-url: https://cd.example.com/deployments/flask-app
