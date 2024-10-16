@@ -89,6 +89,9 @@ metadata:
     - backend
   annotations:
     documentation: url:https://your-techdocs-site.com/docs/flask-app-api
+    # CI/CD Annotations
+    backstage.io/ci-cd-pipeline-url: https://ci.example.com/pipelines/flask-app
+    backstage.io/cd-deployment-url: https://cd.example.com/deployments/flask-app
 spec:
   type: openapi
   lifecycle: production
