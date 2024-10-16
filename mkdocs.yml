@@ -1,4 +1,4 @@
 site_name: Backstage Jenkins Plugin Demo
 nav:
   - Home: README.md
-docs_dir: .
+# docs_dir: .
