@@ -91,18 +91,6 @@ spec:
   dependsOn:
     - resource: database/postgresql@your-org/your-database
     - component: authentication-service@your-org/auth-service
-  # Removed 'subcomponentOf' as it's not necessary when 'system' is specified
-relations:
-  - type: ownedBy
-    targetRef: Group:default/team-xyz
-  - type: partOf
-    targetRef: System:default/backend-system
-  - type: dependsOn
-    targetRef: Component:default/authentication-service
-  - type: consumesApi
-    targetRef: API:default/authentication-api
-  - type: providesApi
-    targetRef: API:default/flask-app-api
 status:
   lastUpdated: '2023-10-01T12:00:00Z'
   summary: Operational
