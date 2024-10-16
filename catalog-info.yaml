@@ -31,6 +31,22 @@ spec:
   lifecycle: production
 ---
 apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: your-database
+  description: Database server for the Flask application.
+  tags:
+    - database
+    - postgres  # Replace with your database type (e.g., mysql, mongodb)
+  annotations:
+    backstage.io/techdocs-ref: url:https://your-techdocs-site.com/docs/your-database
+    # Add any other annotations relevant to your database resource
+spec:
+  type: database  # This can be 'database', 'queue', 'cache', etc.
+  owner: team-xyz
+  system: backend-system
+---
+apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: flask-app
