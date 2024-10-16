@@ -90,8 +90,8 @@ metadata:
   annotations:
     documentation: url:https://your-techdocs-site.com/docs/flask-app-api
     # CI/CD Annotations
-    backstage.io/ci-cd-pipeline-url: https://ci.example.com/pipelines/flask-app
-    backstage.io/cd-deployment-url: https://cd.example.com/deployments/flask-app
+    # backstage.io/ci-cd-pipeline-url: https://ci.example.com/pipelines/flask-app
+    # backstage.io/cd-deployment-url: https://cd.example.com/deployments/flask-app
 spec:
   type: openapi
   lifecycle: production
@@ -108,3 +108,10 @@ spec:
           responses:
             '200':
               description: Successful response
+  relations:
+    - type: "ownedBy"  # Existing relationship example
+      target: "group:team-xyz"
+    - type: "managedBy"  # New CI/CD relationship
+      target: "pipeline:flask-app-pipeline"
+    - type: "deploys"     # Another possible CI/CD relationship
+      target: "deployment:flask-app-deployment"
