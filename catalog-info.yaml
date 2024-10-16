@@ -84,8 +84,9 @@ spec:
     - default/authentication-api
     - default/database-api
   dependsOn:
-    - Resource:your-database
-    - Component:authentication-service
+    - resource:your-database
+    - component:authentication-service
+    - component:example-website  # New dependency added here
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
