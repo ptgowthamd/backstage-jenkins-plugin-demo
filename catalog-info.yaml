@@ -75,5 +75,5 @@ spec:
     - default/authentication-api
     - default/database-api
   dependsOn:
-    - resource: database/postgresql@your-org/your-database
-    - component: authentication-service@your-org/auth-service
+    - Resource:your-database
+    - Component:authentication-service
