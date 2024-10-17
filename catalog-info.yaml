@@ -65,6 +65,175 @@ spec:
   lifecycle: production
 ---
 apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: authentication-api
+  description: RESTful API for authentication and authorization services.
+  tags:
+    - auth
+    - api
+    - backend
+  annotations:
+    documentation: url:https://your-techdocs-site.com/docs/authentication-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: team-xyz
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Authentication API
+      version: 1.0.0
+      description: API for user authentication and authorization.
+    servers:
+      - url: https://api.yourdomain.com/auth
+        description: Production server
+    paths:
+      /login:
+        post:
+          summary: Authenticate user and return a JWT token.
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                      example: "johndoe"
+                    password:
+                      type: string
+                      example: "password123"
+                  required:
+                    - username
+                    - password
+          responses:
+            '200':
+              description: Successful authentication.
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+            '401':
+              description: Invalid credentials.
+      /register:
+        post:
+          summary: Register a new user.
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                      example: "johndoe"
+                    email:
+                      type: string
+                      example: "johndoe@example.com"
+                    password:
+                      type: string
+                      example: "password123"
+                  required:
+                    - username
+                    - email
+                    - password
+          responses:
+            '201':
+              description: User created successfully.
+            '400':
+              description: Bad request (e.g., missing fields, user already exists).
+      /logout:
+        post:
+          summary: Log out the current user.
+          responses:
+            '200':
+              description: Successful logout.
+            '401':
+              description: Unauthorized (no valid token provided).
+      /users/{id}:
+        get:
+          summary: Retrieve user information.
+          parameters:
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: string
+          responses:
+            '200':
+              description: User information retrieved.
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      username:
+                        type: string
+                      email:
+                        type: string
+            '404':
+              description: User not found.
+    components:
+      securitySchemes:
+        BearerAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+    security:
+      - BearerAuth: []
+  relations:
+    - type: "ownedBy"
+      target: "group:team-xyz"
+    - type: "managedBy"
+      target: "pipeline:authentication-api-pipeline"
+    - type: "deploys"
+      target: "deployment:authentication-api-deployment"
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: flask-app-api
+  description: RESTful API provided by the Flask application.
+  tags:
+    - flask
+    - api
+    - backend
+  annotations:
+    documentation: url:https://your-techdocs-site.com/docs/flask-app-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: team-xyz
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Flask App API
+      version: 1.0.0
+    paths:
+      /endpoint:
+        get:
+          summary: Sample endpoint
+          responses:
+            '200':
+              description: Successful response
+  relations:
+    - type: "ownedBy"  # Existing relationship example
+      target: "group:team-xyz"
+    - type: "managedBy"  # New CI/CD relationship
+      target: "pipeline:flask-app-pipeline"
+    - type: "deploys"     # Another possible CI/CD relationship
+      target: "deployment:flask-app-deployment"
+---
+apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: flask-app
@@ -116,43 +285,7 @@ spec:
     - default/flask-app-api
   consumesApis:
     - default/authentication-api
-    - default/database-api
   dependsOn:
     - resource:user-management-db
     - component:authentication-service
     - component:example-website  # New dependency added here
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: flask-app-api
-  description: RESTful API provided by the Flask application.
-  tags:
-    - flask
-    - api
-    - backend
-  annotations:
-    documentation: url:https://your-techdocs-site.com/docs/flask-app-api
-spec:
-  type: openapi
-  lifecycle: production
-  owner: team-xyz
-  definition: |
-    openapi: 3.0.0
-    info:
-      title: Flask App API
-      version: 1.0.0
-    paths:
-      /endpoint:
-        get:
-          summary: Sample endpoint
-          responses:
-            '200':
-              description: Successful response
-  relations:
-    - type: "ownedBy"  # Existing relationship example
-      target: "group:team-xyz"
-    - type: "managedBy"  # New CI/CD relationship
-      target: "pipeline:flask-app-pipeline"
-    - type: "deploys"     # Another possible CI/CD relationship
-      target: "deployment:flask-app-deployment"
