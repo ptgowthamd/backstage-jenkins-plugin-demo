@@ -1,35 +1,3 @@
-# apiVersion: backstage.io/v1alpha1
-# kind: Component
-# metadata:
-#   name: jenkins-plugin-demo-project
-#   description: An example of a Backstage application.
-#   # Example for optional annotations
-#   # annotations:
-#   #   github.com/project-slug: backstage/backstage
-#   #   backstage.io/techdocs-ref: dir:.
-#   annotations:
-#     # jenkins-jobUrl: http://localhost:8080/job/SimplePipeline
-#     # jenkins.io/job-full-name: SimplePipeline
-#     jenkins-jobUrl: http://localhost:8080/job/My-GitHub-Pipeline
-#     jenkins.io/job-full-name: My-GitHub-Pipeline
-# spec:
-#   type: service
-#   owner: gowtham@example.com
-#   lifecycle: experimental
-# ---
-# apiVersion: backstage.io/v1alpha1
-# kind: Component
-# metadata:
-#   name: jenkins-plugin-demo-project-2
-#   description: test pipeline-2
-#   annotations:
-#     jenkins-jobUrl: http://localhost:8080/job/SimplePipeline
-#     jenkins.io/job-full-name: SimplePipeline
-# spec:
-#   type: service
-#   owner: gowthamd@example.com
-#   lifecycle: production
-# ---
 apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
@@ -322,7 +290,6 @@ spec:
     - default/authentication-api
   dependsOn:
     - resource:user-management-db
-    - component:authentication-service
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -376,7 +343,7 @@ spec:
     - default/flask-app-api
   consumesApis:
     - default/authentication-api
+    - default/flask-app2-api
   dependsOn:
     - resource:user-management-db
-    - component:authentication-service
-    - component:example-website  # New dependency added here
+    - component:flask-app2
