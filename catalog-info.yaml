@@ -33,18 +33,36 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
-  name: your-database
-  description: Database server for the Flask application.
+  name: user-management-db
+  description: Production PostgreSQL database for the User Management service.
   tags:
     - database
-    - postgres  # Replace with your database type (e.g., mysql, mongodb)
+    - postgres
+    - production
   annotations:
-    backstage.io/techdocs-ref: url:https://your-techdocs-site.com/docs/your-database
-    # Add any other annotations relevant to your database resource
+    backstage.io/techdocs-ref: url:https://github.com/ptgowthamd/backstage-jenkins-plugin-demo
+    monitoring.dashboard.url: https://monitoring.example.com/dashboards/db/user-management-db
+    documentation.url: https://docs.example.com/databases/user-management-db
+    support.contact: team-xyz@example.com
+    environment: production
+    database.host: db-prod.example.com
+    database.port: "5432"
+    database.version: "12"
+  links:
+    - url: https://monitoring.example.com/dashboards/db/user-management-db
+      title: Monitoring Dashboard
+      icon: dashboard
+    - url: https://docs.example.com/databases/user-management-db
+      title: Database Documentation
+      icon: docs
+    - url: https://tickets.example.com/support/db/user-management-db
+      title: Support Tickets
+      icon: support
 spec:
-  type: database  # This can be 'database', 'queue', 'cache', etc.
+  type: database
   owner: team-xyz
   system: backend-system
+  lifecycle: production
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -100,7 +118,7 @@ spec:
     - default/authentication-api
     - default/database-api
   dependsOn:
-    - resource:your-database
+    - resource:user-management-db
     - component:authentication-service
     - component:example-website  # New dependency added here
 ---
