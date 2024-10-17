@@ -1,33 +1,3 @@
-# Group Entity: team-xyz
-apiVersion: backstage.io/v1alpha1
-kind: Group
-metadata:
-  name: team-xyz
-  description: Team XYZ responsible for backend services.
-  tags:
-    - backend
-    - team
-spec:
-  type: team
-  profile:
-    displayName: Team XYZ
-    email: team-xyz@example.com
-    picture: https://example.com/images/team-xyz.png
-  members:
-    - user: alice
-    - user: bob
-  parent: department-engineering
----
-# System Entity: backend-system
-apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: backend-system
-  description: Backend system supporting core services.
-  owner: group:team-xyz
-spec:
-  domain: default
----
 apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
