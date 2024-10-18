@@ -17,6 +17,7 @@ spec:
     - user: alice
     - user: bob
   parent: department-engineering
+  children: []
 ---
 # System Entity: backend-system
 apiVersion: backstage.io/v1alpha1
