@@ -14,9 +14,9 @@ spec:
     email: team-xyz@example.com
     picture: https://example.com/images/team-xyz.png
   members:
-    - user: alice
-    - user: bob
-  parent: department-engineering
+    - user:alice
+    - user:bob
+  parent: group:department-engineering
   children: []
 ---
 # System Entity: backend-system
