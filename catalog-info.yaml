@@ -1,3 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: default
+  description: Default domain for systems and components.
+spec:
+  owner: group:team-xyz
+---
 # Group Entity: department-engineering
 apiVersion: backstage.io/v1alpha1
 kind: Group
