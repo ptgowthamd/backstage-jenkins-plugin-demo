@@ -24,8 +24,8 @@ kind: System
 metadata:
   name: backend-system
   description: Backend system supporting core services.
-  owner: group:team-xyz
 spec:
+  owner: group:team-xyz
   domain: default
 ---
 apiVersion: backstage.io/v1alpha1
