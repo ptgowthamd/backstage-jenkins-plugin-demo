@@ -11,8 +11,6 @@ spec:
     email: engineering@example.com
     picture: https://example.com/images/engineering.png
   members: []
-  # Assuming there is no parent group, you can omit or set parent to null
-  parent: null
   children:
     - group:team-xyz
 ---
