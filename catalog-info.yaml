@@ -322,6 +322,18 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
+  name: jenkins-only-component
+  annotations:
+    backstage.io/jenkins-only: 'true'
+    jenkins.io/job-full-name: My-GitHub-Pipeline
+spec:
+  type: service  # or 'website' or another type as needed
+  owner: you@example.com
+  lifecycle: experimental
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
   name: flask-app2
   description: A simple Flask application
   tags:
